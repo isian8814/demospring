@@ -1,0 +1,8 @@
+jar {
+	baseName = 'rest'
+}
+
+dependencies {
+	compile project(':model')
+	compile('org.springframework.boot:spring-boot-starter-web')
+}

@@ -1,0 +1,46 @@
+buildscript {
+    ext.springBootVersion = '1.4.2.RELEASE'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    group 'com.springboot.demo'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    compileJava.options.encoding = 'UTF-8'
+
+    dependencies {
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+    springBoot {
+        mainClass = 'bookmarks.Application'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2'
+}
