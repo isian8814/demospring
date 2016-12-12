@@ -2,6 +2,10 @@ jar {
 	baseName = 'rest'
 }
 
+bootRepackage {
+	enabled = true
+}
+
 dependencies {
 	compile project(':model')
 	compile('org.springframework.boot:spring-boot-starter-web')

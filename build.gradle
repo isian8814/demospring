@@ -21,19 +21,39 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'org.springframework.boot'
-
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
     compileJava.options.encoding = 'UTF-8'
 
-    dependencies {
-        testCompile('org.springframework.boot:spring-boot-starter-test')
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+            }
+            resources {
+                srcDirs = ['src/main/resources']
+            }
+        }
+
+        test {
+            java {
+                srcDirs = ['src/test/java']
+            }
+            resources {
+                srcDirs = ['src/test/resources']
+            }
+        }
     }
 
-    springBoot {
-        mainClass = 'bookmarks.Application'
+    apply plugin: 'org.springframework.boot'
+
+    bootRepackage {
+        enabled = false
+    }
+
+    dependencies {
+        testCompile('org.springframework.boot:spring-boot-starter-test')
     }
 
     repositories {
