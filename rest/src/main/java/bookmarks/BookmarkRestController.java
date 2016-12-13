@@ -66,6 +66,8 @@ class BookmarkRestController {
 						.fromCurrentRequest().path("/{id}")
 						.buildAndExpand(result.getId()).toUri();
 
+					System.out.println(location.toString());
+
 					return ResponseEntity.created(location).build();
 				})
 				.orElse(ResponseEntity.noContent().build());

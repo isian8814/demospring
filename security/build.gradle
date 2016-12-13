@@ -1,0 +1,20 @@
+jar {
+    baseName = 'security'
+}
+
+bootRepackage {
+    enabled = true
+}
+dependencies {
+
+    compile project(':model')
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.hateoas:spring-hateoas")
+
+    testCompile("com.jayway.jsonpath:json-path")
+    testCompile("junit:junit")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+
+}

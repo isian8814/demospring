@@ -2,3 +2,5 @@ rootProject.name='demospring'
 
 include 'model'
 include 'rest'
+include 'hateoas'
+include 'security'
